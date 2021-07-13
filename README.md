@@ -1,2 +1,2 @@
 # tozmy.github.io
-Merry Christmas to zmy!
+Best wishes to zmy!
