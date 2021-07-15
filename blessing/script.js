@@ -10,14 +10,14 @@ new Vue({
       isTimerPlaying: false,
       tracks: [
         {
-          name: "Visions of Gideon",
-          artist: "Sufjan Stevens",
-          cover: "https://db.songqi.online/visions-of-gideon.jpg",
-          source: "https://db.songqi.online/visions-of-gideon.mp3",
-          url: "https://music.163.com/song?id=516358165&userid=380194786",
-          blessing: "生日快乐！",
-          author: "弟弟",
-          favorited: true
+          name: "陽のあたる場所へ",
+          artist: "平井 大",
+          cover: "https://db.songqi.online/go-to-a-place-where-the-sun-shines.jpg",
+          source: "https://db.songqi.online/go-to-a-place-where-the-sun-shines.mp3",
+          url: "https://music.163.com/song?id=1465230223&userid=380194786",
+          blessing: "生日快乐生日快乐生日快乐",
+          author: "小树",
+          favorited: false
         },
         {
           name: "Everglow",
@@ -37,6 +37,16 @@ new Vue({
           url: "https://c.y.qq.com/base/fcgi-bin/u?__=oQk6qn45",
           blessing: "祝月月生日快乐<br><br>在未来的日子里振翅高飞",
           author: "文文",
+          favorited: false
+        },
+        {
+          name: "Crush",
+          artist: "Tessa Violet",
+          cover: "https://db.songqi.online/crush.jpg",
+          source: "https://db.songqi.online/crush.mp3",
+          url: "https://music.163.com/song?id=516358165&userid=380194786",
+          blessing: "生日快乐！",
+          author: "弟弟",
           favorited: false
         },
         {
