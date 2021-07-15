@@ -35,7 +35,7 @@ new Vue({
           cover: "https://db.songqi.online/zmy.jpg",
           source: "https://db.songqi.online/breath-of-light.mp3",
           url: "https://c.y.qq.com/base/fcgi-bin/u?__=oQk6qn45",
-          blessing: "祝月月生日快乐<br><br>在未来的日子里振翅高飞",
+          blessing: "祝月月生日快乐<br><br>在未来的日子里振翅高飞<br><br>（PS：益文特别要求替换封面照片！）",
           author: "文文",
           favorited: false
         },
