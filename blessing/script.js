@@ -68,6 +68,16 @@ new Vue({
           blessing: "往事不回头<br><br>未来不将就<br><br>希望你眼里总有光<br><br>活成自己喜欢的样子<br><br>生日快乐呀",
           author: "洋小汶",
           favorited: false
+        },
+        {
+          name: "I Sing I Swim",
+          artist: "Seabear",
+          cover: "https://db.songqi.online/i-sing-i-swim.jpg",
+          source: "https://db.songqi.online/i-sing-i-swim.mp3",
+          url: "https://music.163.com/#/song?id=4281819&userid=541543776",
+          blessing: "️️️️🈷🈷生日快乐！<br><br>距离上次告别已经过去37天了！还记得第一次见面在老区恰的烤肉，此后更成为好朋友。每次出去玩总是特别开心，现在想想唯一遗憾的是少拍了很多照片。不出意外的话今年的毕业旅行应该出意外泡汤了。不过明年你毕业的时候我们四人的毕业旅行一定要安排上！<br><br>愿你永远是一个漂亮的少女！永远是一个开心的人儿！<br><br>🎉🎉生日快乐！",
+          author: "老板",
+          favorited: false
         }
       ],
       currentTrack: null,
