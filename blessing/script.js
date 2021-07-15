@@ -32,7 +32,7 @@ new Vue({
         {
           name: "光の気配",
           artist: "KinKi Kids",
-          cover: "https://db.songqi.online/breath-of-light.jpg",
+          cover: "https://db.songqi.online/zmy.jpg",
           source: "https://db.songqi.online/breath-of-light.mp3",
           url: "https://c.y.qq.com/base/fcgi-bin/u?__=oQk6qn45",
           blessing: "祝月月生日快乐<br><br>在未来的日子里振翅高飞",
