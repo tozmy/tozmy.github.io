@@ -75,6 +75,7 @@
       </div>
       <br>
       <div class="album-info_blessing" v-html="currentTrack.blessing"></div>
+      <div class="album-info_blessing" v-html="currentTrack.hide" v-show="currentTrack.favorited"></div>
       <br>
       <div class="album-info_author">{{ currentTrack.author }}</div>
       <div v-cloak></div>
