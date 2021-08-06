@@ -2,86 +2,86 @@
 <html lang="zh">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Happy birthday to little crab!</title>
-  <link href="../favicon.svg" rel="icon">
-  <link href="https://fonts.googleapis.com/css?family=Bitter:400,700&display=swap&subset=latin-ext" rel="stylesheet" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
-  <link rel="stylesheet" href="./style.css">
-  <script>
-    var _hmt = _hmt || [];
-    (function () {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?1229b98078cc02c561149976cefd6228";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
+    <meta charset="UTF-8">
+    <title>Happy birthday to little crab!</title>
+    <link href="../favicon.svg" rel="icon">
+    <link href="https://fonts.googleapis.com/css?family=Bitter:400,700&display=swap&subset=latin-ext" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'> -->
+    <link rel='stylesheet' href='https://cdn.bootcdn.net/ajax/libs/meyer-reset/2.0/reset.min.css'>
+    <link rel="stylesheet" href="./style.css">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?1229b98078cc02c561149976cefd6228";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>
 
 <body>
-  <!-- partial:index.partial.html -->
-  <div class="wrapper" id="app">
-    <div class="player">
-      <div class="player__top">
-        <div class="player-cover">
-          <transition-group :name="transitionName">
-            <div class="player-cover__item" v-if="$index === currentTrackIndex"
-              :style="{ backgroundImage: `url(${track.cover})` }" v-for="(track, $index) in tracks" :key="$index"></div>
-          </transition-group>
-        </div>
-        <div class="player-controls">
-          <div class="player-controls__item -favorite" :class="{ active : currentTrack.favorited }" @click="favorite">
-            <svg class="icon">
+    <!-- partial:index.partial.html -->
+    <div class="wrapper" id="app">
+        <div class="player">
+            <div class="player__top">
+                <div class="player-cover">
+                    <transition-group :name="transitionName">
+                        <div class="player-cover__item" v-if="$index === currentTrackIndex" :style="{ backgroundImage: `url(${track.cover})` }" v-for="(track, $index) in tracks" :key="$index"></div>
+                    </transition-group>
+                </div>
+                <div class="player-controls">
+                    <div class="player-controls__item -favorite" :class="{ active : currentTrack.favorited }" @click="favorite">
+                        <svg class="icon">
               <use xlink:href="#icon-heart-o"></use>
             </svg>
-          </div>
-          <a :href="currentTrack.url" target="_blank" class="player-controls__item">
-            <svg class="icon">
+                    </div>
+                    <a :href="currentTrack.url" target="_blank" class="player-controls__item">
+                        <svg class="icon">
               <use xlink:href="#icon-link"></use>
             </svg>
-          </a>
-          <div class="player-controls__item" @click="prevTrack">
-            <svg class="icon">
+                    </a>
+                    <div class="player-controls__item" @click="prevTrack">
+                        <svg class="icon">
               <use xlink:href="#icon-prev"></use>
             </svg>
-          </div>
-          <div class="player-controls__item" @click="nextTrack">
-            <svg class="icon">
+                    </div>
+                    <div class="player-controls__item" @click="nextTrack">
+                        <svg class="icon">
               <use xlink:href="#icon-next"></use>
             </svg>
-          </div>
-          <div class="player-controls__item -xl js-play" @click="play">
-            <svg class="icon">
+                    </div>
+                    <div class="player-controls__item -xl js-play" @click="play">
+                        <svg class="icon">
               <use xlink:href="#icon-pause" v-if="isTimerPlaying"></use>
               <use xlink:href="#icon-play" v-else></use>
             </svg>
-          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="progress" ref="progress">
+                <div class="progress__top">
+                    <div class="album-info" v-if="currentTrack">
+                        <div class="album-info__name">{{ currentTrack.artist }}</div>
+                        <div class="album-info__track">{{ currentTrack.name }}</div>
+                    </div>
+                    <div class="progress__duration">{{ duration }}</div>
+                </div>
+                <div class="progress__bar" @click="clickProgress">
+                    <div class="progress__current" :style="{ width : barWidth }"></div>
+                </div>
+                <div class="progress__time">{{ currentTime }}</div>
+            </div>
+            <br>
+            <div class="album-info_blessing" v-html="currentTrack.blessing"></div>
+            <div class="album-info_blessing" v-html="currentTrack.hide" v-show="currentTrack.favorited"></div>
+            <br>
+            <div class="album-info_author">{{ currentTrack.author }}</div>
+            <div v-cloak></div>
         </div>
-      </div>
-      <div class="progress" ref="progress">
-        <div class="progress__top">
-          <div class="album-info" v-if="currentTrack">
-            <div class="album-info__name">{{ currentTrack.artist }}</div>
-            <div class="album-info__track">{{ currentTrack.name }}</div>
-          </div>
-          <div class="progress__duration">{{ duration }}</div>
-        </div>
-        <div class="progress__bar" @click="clickProgress">
-          <div class="progress__current" :style="{ width : barWidth }"></div>
-        </div>
-        <div class="progress__time">{{ currentTime }}</div>
-      </div>
-      <br>
-      <div class="album-info_blessing" v-html="currentTrack.blessing"></div>
-      <div class="album-info_blessing" v-html="currentTrack.hide" v-show="currentTrack.favorited"></div>
-      <br>
-      <div class="album-info_author">{{ currentTrack.author }}</div>
-      <div v-cloak></div>
     </div>
-  </div>
-  <svg xmlns="http://www.w3.org/2000/svg" hidden xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg xmlns="http://www.w3.org/2000/svg" hidden xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
       <symbol id="icon-heart-o" viewBox="0 0 32 32">
         <title>icon-heart-o</title>
@@ -175,9 +175,10 @@
       </symbol>
     </defs>
   </svg>
-  <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
-  <script src="./script.js"></script>
+    <!-- partial -->
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script> -->
+    <script src='https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.min.js'></script>
+    <script src="./script.js"></script>
 
 </body>
 
